@@ -16,6 +16,7 @@ namespace WebBanHangOnline.Models.EF
         [Required]
         [StringLength(250)]
         public string Title { get; set; }
+        public string Alias { get; set; }
         public string ProductCode { get; set; }
         public int ProductCategoryID { get; set; }
         public string Descriptiom { get; set; }

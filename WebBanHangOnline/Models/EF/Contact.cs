@@ -20,7 +20,7 @@ namespace WebBanHangOnline.Models.EF
         [StringLength(150, ErrorMessage = "Không được vượt quá 150 ký tự")]
         public string Email { get; set; }
         [StringLength(4000)]
-        public int Message  { get; set; }
+        public string Message  { get; set; }
         public bool IsRead { get; set; }
     }
 }
