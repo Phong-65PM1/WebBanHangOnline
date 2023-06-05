@@ -34,7 +34,7 @@
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
-            @RenderSection("naviheader", required:false)
+            @RenderSection("naviheader", required: false)
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -348,8 +348,9 @@
         document.querySelector("#actions .cancel").onclick = function () {
             myDropzone.removeAllFiles(true)
         }
-      // DropzoneJS Demo Code End
-    </script>
+              // DropzoneJS Demo Code End</script>
+    <script src="~/Content/ckeditor/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
