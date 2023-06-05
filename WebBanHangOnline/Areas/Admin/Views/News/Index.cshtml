@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<WebBanHangOnline.Models.EF.News>
 @{
     ViewBag.Title = "Danh sách tin tức";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";  
 }
 
 @section naviheader{
@@ -55,6 +55,7 @@
                         <th>Hình ảnh</th>
                         <th>Tên đề</th>
                         <th>Ngày tạo</th>
+                        <th>Hiển thị</th>
                         <th>Thứ tự</th>
                         <th></th>
                     </tr>
@@ -65,12 +66,16 @@
                         var i = 1;
                         foreach (var item in Model)
                         {
+                            var strCheck = item.IsActive ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
                             <tr id="trow_@item.Id">
                                 <td>@i</td>
                                 <td><img src="@item.Image" width="50" /></td>
                                 <td>@item.Title</td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
-                                <td>
+                                <td class="text-center">
+                                    <a href='#' data-id="@item.Id" class="btnActive"> @Html.Raw(strCheck)</a>
+</td>
+                                <td >
                                     <a href="/admin/news/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
                                     <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
@@ -120,6 +125,33 @@
                         }
                     });
                 }
+            });
+
+            $('body').on('click', '.btnActive', function (e) {
+                e.preventDefault();
+                var btn = $(this);
+                var id = btn.data("id");
+                  $.ajax({
+                        url: '/admin/news/IsActive',
+                        type: 'POST',
+                        data: { id: id },
+                      success: function (rs) {
+                          debugger;
+                          if (rs.success)
+                          {
+                              if (rs.isActive) {
+                                  btn.html("<i class='fa fa-check text-success'></i>");
+                                  //$(this).find("i").removeClass("fas fa-times text-danger");
+                                  //$(this).find("i").addClass("fa fa-check text-success");
+                              } else {
+                                  btn.html("<i class='fas fa-times text-danger'></i>");
+                                  //$(this).find("i").removeClass("fa fa-check text-success");
+                                  //$(this).find("i").addClass("fas fa-times text-danger");
+                                  
+                              }
+                          }
+                        }
+                  });
             });
         });
     </script>

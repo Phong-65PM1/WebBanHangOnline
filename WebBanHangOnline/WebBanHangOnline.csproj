@@ -196,6 +196,10 @@
     <Compile Include="Migrations\202306041035314_UpdateData.Designer.cs">
       <DependentUpon>202306041035314_UpdateData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306050837149_UpdateActive.cs" />
+    <Compile Include="Migrations\202306050837149_UpdateActive.Designer.cs">
+      <DependentUpon>202306050837149_UpdateActive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -3114,6 +3118,7 @@
     <Content Include="Content\ckeditor\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="Content\ckeditor\ckeditor\skins\moono\readme.md" />
     <Content Include="Content\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
+    <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3187,6 +3192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306041035314_UpdateData.resx">
       <DependentUpon>202306041035314_UpdateData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306050837149_UpdateActive.resx">
+      <DependentUpon>202306050837149_UpdateActive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
