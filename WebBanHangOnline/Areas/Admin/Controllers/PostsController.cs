@@ -1,5 +1,4 @@
-﻿using PagedList;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,29 +8,15 @@ using WebBanHangOnline.Models.EF;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
-    public class NewsController : Controller
+    public class PostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Admin/News
-        public ActionResult Index(string Searchtext, int? page)
+        // GET: Admin/Posts
+        public ActionResult Index()
         {
-            var pageSize = 10;
-            if (page == null)
-            {
-                page = 1;
-            }
-            IEnumerable<News> items = db.News.OrderByDescending(x => x.Id);
-            if (!string.IsNullOrEmpty(Searchtext))
-            {
-                items = items.Where(x => x.Alias.Contains(Searchtext) || x.Title.Contains(Searchtext)).ToList();
-            }
-            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
-            items = items.ToPagedList(pageIndex, pageSize);
-            ViewBag.PageSize = pageSize;
-            ViewBag.Page = page;
+            var items = db.Posts.ToList();
             return View(items);
         }
-
         public ActionResult Add()
         {
             return View();
@@ -39,15 +24,15 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(News model)
+        public ActionResult Add(Posts model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
                 model.CategoryId = 3;
                 model.ModifiedrDate = DateTime.Now;
                 model.Alias = WebBanHangOnline.Models.Common.Filter.FilterChar(model.Title);
-                db.News.Add(model);
+                db.Posts.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -56,19 +41,19 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var item = db.News.Find(id);
+            var item = db.Posts.Find(id);
             return View(item);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(News model)
+        public ActionResult Edit(Posts model)
         {
             if (ModelState.IsValid)
             {
                 model.ModifiedrDate = DateTime.Now;
                 model.Alias = WebBanHangOnline.Models.Common.Filter.FilterChar(model.Title);
-                db.News.Attach(model);
+                db.Posts.Attach(model);
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +64,10 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            var item = db.News.Find(id);
-            if(item != null)
+            var item = db.Posts.Find(id);
+            if (item != null)
             {
-                db.News.Remove(item);
+                db.Posts.Remove(item);
                 db.SaveChanges();
                 return Json(new { success = true });
             }
@@ -92,13 +77,13 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Isactive(int id)
         {
-            var item = db.News.Find(id);
+            var item = db.Posts.Find(id);
             if (item != null)
             {
                 item.IsActive = !item.IsActive;
                 db.Entry(item).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return Json(new { success = true , isActive  = item.IsActive });
+                return Json(new { success = true, isActive = item.IsActive });
             }
             return Json(new { success = false });
         }
@@ -109,12 +94,12 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             if (!string.IsNullOrEmpty(ids))
             {
                 var items = ids.Split(',');
-                if(items!=null && items.Any())
+                if (items != null && items.Any())
                 {
-                    foreach(var item in items)
+                    foreach (var item in items)
                     {
-                        var obj = db.News.Find(Convert.ToInt32(item));
-                        db.News.Remove(obj);
+                        var obj = db.Posts.Find(Convert.ToInt32(item));
+                        db.Posts.Remove(obj);
                         db.SaveChanges();
                     }
                 }
