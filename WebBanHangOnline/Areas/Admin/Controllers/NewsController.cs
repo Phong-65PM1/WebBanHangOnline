@@ -89,6 +89,24 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return Json(new { success = false });
         }
 
-
+        [HttpPost]
+        public ActionResult DeleteAll(string ids)
+        {
+            if (!string.IsNullOrEmpty(ids))
+            {
+                var items = ids.Split(',');
+                if(items!=null && items.Any())
+                {
+                    foreach(var item in items)
+                    {
+                        var obj = db.News.Find(Convert.ToInt32(item));
+                        db.News.Remove(obj);
+                        db.SaveChanges();
+                    }
+                }
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
+        }
     }
 }
