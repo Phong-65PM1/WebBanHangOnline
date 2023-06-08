@@ -95,28 +95,30 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Chi tiết sản phẩm</label>
-                                            @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @placeholder = "Mã sản phẩm" })
+                                            @Html.TextAreaFor(x => x.Detail, new { @class = "form-control", @id= "txtDetail" })
                                             @Html.ValidationMessageFor(x => x.Detail, null, new { @class = "text-danger" })
                                         </div>
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Số lượng</label>
-                                                    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @placeholder = "Số lượng" })
+                                                    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @Value="1" })
                                                     @Html.ValidationMessageFor(x => x.Quantity, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Giá</label>
-                                                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control", @placeholder = "Giá" })
+                                                    <input type="text" name="demoPrice" id="demoPrice" value="0" class="form-control auto"  data-a-dec="," data-a-sep=".">
+                                                    @Html.HiddenFor(x => x.Price, new { @class = "", @placeholder = "Giá" })
                                                     @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Giá khuyến mãi</label>
-                                                    @Html.TextBoxFor(x => x.PriceSale, new { @class = "form-control", @placeholder = "Khuyến mãi" })
+                                                    <input type="text" name="demoPriceSale" id="demoPriceSale" value="0" class="form-control auto"  data-a-dec="," data-a-sep=".">
+                                                    @Html.HiddenFor(x => x.PriceSale, new { @class = "form-control", @placeholder = "Khuyến mãi" })
                                                     @Html.ValidationMessageFor(x => x.PriceSale, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -159,97 +161,25 @@
                                     </div>
                                     <!-- /.tab-pane -->
                                     <div class="tab-pane" id="timeline">
-                                        <!-- The timeline -->
-                                        <div class="timeline timeline-inverse">
-                                            <!-- timeline time label -->
-                                            <div class="time-label">
-                                                <span class="bg-danger">
-                                                    10 Feb. 2014
-                                                </span>
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <input type="button" class="btn btn-primary" id="iTaiAnh" onclick="BrowseServer();" value="Tải ảnh" />
                                             </div>
-                                            <!-- /.timeline-label -->
-                                            <!-- timeline item -->
-                                            <div>
-                                                <i class="fas fa-envelope bg-primary"></i>
-
-                                                <div class="timeline-item">
-                                                    <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                                    <div class="timeline-body">
-                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                                        quora plaxo ideeli hulu weebly balihoo...
-                                                    </div>
-                                                    <div class="timeline-footer">
-                                                        <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END timeline item -->
-                                            <!-- timeline item -->
-                                            <div>
-                                                <i class="fas fa-user bg-info"></i>
-
-                                                <div class="timeline-item">
-                                                    <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                                                    <h3 class="timeline-header border-0">
-                                                        <a href="#">Sarah Young</a> accepted your friend request
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                            <!-- END timeline item -->
-                                            <!-- timeline item -->
-                                            <div>
-                                                <i class="fas fa-comments bg-warning"></i>
-
-                                                <div class="timeline-item">
-                                                    <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                                                    <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                                                    <div class="timeline-body">
-                                                        Take me to your leader!
-                                                        Switzerland is small and neutral!
-                                                        We are more like Germany, ambitious and misunderstood!
-                                                    </div>
-                                                    <div class="timeline-footer">
-                                                        <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END timeline item -->
-                                            <!-- timeline time label -->
-                                            <div class="time-label">
-                                                <span class="bg-success">
-                                                    3 Jan. 2014
-                                                </span>
-                                            </div>
-                                            <!-- /.timeline-label -->
-                                            <!-- timeline item -->
-                                            <div>
-                                                <i class="fas fa-camera bg-purple"></i>
-
-                                                <div class="timeline-item">
-                                                    <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                                                    <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                                                    <div class="timeline-body">
-                                                        <img src="https://placehold.it/150x100" alt="...">
-                                                        <img src="https://placehold.it/150x100" alt="...">
-                                                        <img src="https://placehold.it/150x100" alt="...">
-                                                        <img src="https://placehold.it/150x100" alt="...">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END timeline item -->
-                                            <div>
-                                                <i class="far fa-clock bg-gray"></i>
+                                            <div class="col-md-12">
+                                                <table class="table table-hover" id="tbAnhSanPham">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center>#</thclass="text-center>
+                                                            <th class="text-center">Ảnh</th>
+                                                            <th class="text-center">Ảnh đại diện</th>
+                                                            <th class="text-center">Thao tác</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbHtml">
+                                                       
+                                                    </tbody>
+                                                </table>
+                                                <input type="hidden" id="tCurrentId" value="0" />
                                             </div>
                                         </div>
                                     </div>
@@ -304,19 +234,82 @@
 @section scripts{
     <script>
         $(document).ready(function () {
+            $('.auto').autoNumeric('init');
+            $('#demoPrice').bind('blur focusout keypress keyup', function () {
+                var demoGet = $('#demoPrice').autoNumeric('get');
+                $('#Price').val(demoGet);
+                $('#Price').autoNumeric('set', demoGet);
+            });
+            $('#demoPriceSale').bind('blur focusout keypress keyup', function () {
+                var demoGet = $('#demoPriceSale').autoNumeric('get');
+                $('#PriceSale').val(demoGet);
+                $('#PriceSale').autoNumeric('set', demoGet);
+            });
             CKEDITOR.replace('txtDetail', {
                 customConfig: '/content/ckeditor/ckeditor/config.js',
                 extraAllowedContent: 'span',
+            });
+
+            $('body').on('click', '.btnXoaAnh', function () {
+                var conf = confirm('Bạn có muốn xóa ảnh này không?');
+                if (conf === true) {
+                    var _id = $(this).data('id');
+                    $('#trow_' + _id).fadeTo('fast', 0.5, function () {
+                        $(this).slideUp('fast', function () { $(this).remove(); });
+                    });
+                    var temp = $('#tCurrentId').val();
+                    var currentId = parseInt(temp) - 1;
+                    $('#tCurrentId').val(currentId);
+                }
             });
         });
 
         function BrowseServer(field) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                document.getElementById(field).value = fileUrl;
+            addImageProduct(fileUrl);
             };
             finder.popup();
         }
+
+        function addImageProduct(url) {
+            var temp = $('#tCurrentId').val();
+            var currentId = parseInt(temp) + 1;
+            var str = "";
+            if (currentId == 1) {
+                str += `<tr id="trow_${currentId}">
+                        <td class="text-center" >${currentId}</td >
+                        <td class="text-center"><img width="80" src="${url}" /></td>
+                        <td class="text-center"><input type="radio" value="${currentId}" name="rDefault" checked="checked" /></td>
+                        <td class="text-center"><a href="#" data-id="${currentId}" class="btn btn-sm btn-danger btnXoaAnh">Xóa</a></td>
+                        </tr >`;
+            }
+            else {
+                str += `<tr id="trow_${currentId}">
+                        <td class="text-center" >${currentId}</td >
+                        <td class="text-center"><img width="80" src="${url}" /></td>
+                        <td class="text-center"><input type="radio" name="rDefault" value="${currentId}" /></td>
+                        <td class="text-center"><a href="#" data-id="${currentId}" class="btn btn-sm btn-danger btnXoaAnh">Xóa</a></td>
+                        </tr >`;
+            }
+            $('#tbHtml').append(str);
+            $('#tCurrentId').val(currentId);
+            //$('#tbHtml tr td a').each(function () {
+            //    $(this).click(function () {
+            //        var conf = confirm('Bạn có muốn xóa ảnh này không?');
+            //        if (conf === true) {
+            //            var _id = $(this).data('id');
+            //            $('#trow_' + _id).fadeTo('fast',1, function () {
+            //                $(this).slideUp('fast', function () { $(this).remove(); });
+            //            });
+            //            var temp = $('#tCurrentId').val();
+            //            var currentId = parseInt(temp) - 1;
+            //            $('#tCurrentId').val(currentId);
+            //        }
+            //    });
+            //});
+        }
+
     </script>
 }
 
