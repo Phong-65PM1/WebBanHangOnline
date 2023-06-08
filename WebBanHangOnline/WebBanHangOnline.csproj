@@ -185,31 +185,17 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202306031957284_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202306031957284_CreatedDatabase.Designer.cs">
-      <DependentUpon>202306031957284_CreatedDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306040912045_UpdateCategory.cs" />
-    <Compile Include="Migrations\202306040912045_UpdateCategory.Designer.cs">
-      <DependentUpon>202306040912045_UpdateCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306041035314_UpdateData.cs" />
-    <Compile Include="Migrations\202306041035314_UpdateData.Designer.cs">
-      <DependentUpon>202306041035314_UpdateData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306050837149_UpdateActive.cs" />
-    <Compile Include="Migrations\202306050837149_UpdateActive.Designer.cs">
-      <DependentUpon>202306050837149_UpdateActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306051835598_ChangeModels.cs" />
-    <Compile Include="Migrations\202306051835598_ChangeModels.Designer.cs">
-      <DependentUpon>202306051835598_ChangeModels.cs</DependentUpon>
+    <Compile Include="Migrations\202306061101579_UpdateProductCategory.cs" />
+    <Compile Include="Migrations\202306061101579_UpdateProductCategory.Designer.cs">
+      <DependentUpon>202306061101579_UpdateProductCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3134,6 +3120,10 @@
     <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Add.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3199,20 +3189,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202306031957284_CreatedDatabase.resx">
-      <DependentUpon>202306031957284_CreatedDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306040912045_UpdateCategory.resx">
-      <DependentUpon>202306040912045_UpdateCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306041035314_UpdateData.resx">
-      <DependentUpon>202306041035314_UpdateData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306050837149_UpdateActive.resx">
-      <DependentUpon>202306050837149_UpdateActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306051835598_ChangeModels.resx">
-      <DependentUpon>202306051835598_ChangeModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306061101579_UpdateProductCategory.resx">
+      <DependentUpon>202306061101579_UpdateProductCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

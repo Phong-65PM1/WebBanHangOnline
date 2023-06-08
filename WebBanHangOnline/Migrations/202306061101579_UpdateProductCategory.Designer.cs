@@ -7,13 +7,13 @@ namespace WebBanHangOnline.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdateCategory : IMigrationMetadata
+    public sealed partial class UpdateProductCategory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateCategory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateProductCategory));
         
         string IMigrationMetadata.Id
         {
-            get { return "202306040912045_UpdateCategory"; }
+            get { return "202306061101579_UpdateProductCategory"; }
         }
         
         string IMigrationMetadata.Source
