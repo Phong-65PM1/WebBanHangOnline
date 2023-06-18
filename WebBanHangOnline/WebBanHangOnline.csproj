@@ -186,6 +186,7 @@
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductImagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -196,6 +197,14 @@
     <Compile Include="Migrations\202306061101579_UpdateProductCategory.cs" />
     <Compile Include="Migrations\202306061101579_UpdateProductCategory.Designer.cs">
       <DependentUpon>202306061101579_UpdateProductCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306090915257_Update692023.cs" />
+    <Compile Include="Migrations\202306090915257_Update692023.Designer.cs">
+      <DependentUpon>202306090915257_Update692023.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306100829319_Update1062023.cs" />
+    <Compile Include="Migrations\202306100829319_Update1062023.Designer.cs">
+      <DependentUpon>202306100829319_Update1062023.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3125,6 +3134,7 @@
     <Content Include="Areas\Admin\Views\Products\Add.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3176,6 +3186,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\ProductImages\" />
     <Folder Include="Content\ckfinder\userfiles\" />
   </ItemGroup>
   <ItemGroup>
@@ -3194,6 +3205,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202306061101579_UpdateProductCategory.resx">
       <DependentUpon>202306061101579_UpdateProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306090915257_Update692023.resx">
+      <DependentUpon>202306090915257_Update692023.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306100829319_Update1062023.resx">
+      <DependentUpon>202306100829319_Update1062023.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
